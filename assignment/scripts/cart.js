@@ -7,9 +7,14 @@ const maxItems = 5;
 
 // FIRST FUNCTION
 function addItem(item) { 
-    basket.push(item);
-    console.log('Adding item to cart:', item);
-    return true;
+    if(isFull() === false){
+        basket.push(item);
+        console.log('Adding item to cart:', item);
+        return true;
+    } else {
+        console.log('Your cart is full, item cannot be added.');
+        return false;
+    }
 }
 // tests:
 console.log('Items in cart:', basket);
@@ -29,14 +34,11 @@ function listItems() {
 console.log(listItems());
 console.log(addItem('pickles'));
 console.log(addItem('tomatoes'));
+console.log(addItem('mustard'));
 
 //STRETCH GOAL FUNCTION
 function isFull() {
-    let fullBasket = false;
-    if(basket.length >= maxItems){
-        fullBasket = true;
-    }
-    return fullBasket;
+    return maxItems <= basket.length;
 }
 // test:
 console.log(listItems());
