@@ -16,7 +16,7 @@ function addItem(item) {
         return false;
     }
 }
-// tests:
+/* tests: */ console.log('**** TESTS ****');
 console.log('Items in cart:', basket);
 console.log(addItem('strawberries'));
 console.log(addItem('bread'));
@@ -30,17 +30,17 @@ function listItems() {
     }
     return basket;
 }
-// tests:
+/* tests: */ console.log('**** TESTS ****');
 console.log(listItems());
 console.log(addItem('pickles'));
 console.log(addItem('tomatoes'));
 console.log(addItem('mustard'));
 
-//STRETCH GOAL FUNCTION
+//STRETCH GOAL 2. FUNCTION
 function isFull() {
     return maxItems <= basket.length;
 }
-// test:
+/* tests: */ console.log('**** TESTS ****');
 console.log(listItems());
 console.log('The cart is full:', isFull());
 console.log(empty());
@@ -52,5 +52,22 @@ function empty() {
     console.log('You have emptied your cart.');
     return basket;
 }
-// test:
+/* test: */ console.log('**** TEST ****');
 console.log(empty());
+
+// STRETCH GOAL 4. FUNCTION
+function removeItem(item){
+    if(basket.indexOf(item) === -1) {
+       return null;
+    } else {
+        return basket.splice(basket.indexOf(item), 1)[0];
+    }
+}
+/* tests: */ console.log('**** TESTS ****');
+console.log(addItem('eggs'));
+console.log(addItem('milk'));
+console.log(addItem('instant ramen'));
+console.log(listItems());
+console.log('Remove turkey from cart:', removeItem('turkey'));
+console.log('Remove milk from cart:', removeItem('milk'));
+console.log(listItems());
