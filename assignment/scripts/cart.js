@@ -7,7 +7,7 @@ const maxItems = 5;
 
 // FIRST FUNCTION
 function addItem(item) { 
-    if(isFull() === false){
+    if(!isFull()){ // previously was 'isFull() === false' , this was updated per feedback by KS
         basket.push(item);
         console.log('Adding item to cart:', item);
         return true;
@@ -25,8 +25,10 @@ console.log('Items in cart:', basket);
 
 // SECOND FUNCTION
 function listItems() { 
-    for(item in basket){
-        console.log('This item is in your cart:', basket[item]);
+    for(let item of basket){ // per feedback, needed to add 'let' to the for loop, and switch from for..in to for..of
+        // previously was: for(item in basket) {
+            // changing this fixed the global variable issue my code was running into.
+        console.log('This item is in your cart:', item);
     }
     return basket;
 }
